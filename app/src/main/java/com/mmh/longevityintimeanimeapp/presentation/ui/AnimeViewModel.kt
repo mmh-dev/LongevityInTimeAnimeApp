@@ -12,13 +12,19 @@ import kotlinx.coroutines.launch
 
 class AnimeViewModel : ViewModel() {
     var animeList:List<Anime> by mutableStateOf(listOf())
+    var errorMessage: String by mutableStateOf("")
 
-    fun getAllAnimes(page: Int, size: Int) {
+    fun getAnimesFromApi(page: Int, size: Int) {
         viewModelScope.launch (Dispatchers.IO) {
-            val result = RetrofitBuilder.api.getAnimes(page = page.toString(), size = size.toString())
-            if (result.isSuccessful) {
-                animeList = result.body()?.data ?: mutableListOf()
+            try {
+                val result = RetrofitBuilder.api.getAnimes(page = page.toString(), size = size.toString())
+                if (result.isSuccessful) {
+                    animeList = result.body()?.data ?: mutableListOf()
+                }
+            } catch (e: Exception) {
+                errorMessage = e.message.toString()
             }
+
         }
     }
 }

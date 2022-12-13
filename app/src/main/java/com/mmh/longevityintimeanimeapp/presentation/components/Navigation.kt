@@ -1,6 +1,7 @@
 package com.mmh.longevityintimeanimeapp.presentation.components
 
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -12,10 +13,13 @@ import com.mmh.longevityintimeanimeapp.presentation.ui.animeList.ListScreen
 
 @Composable
 fun Navigation() {
+    val animeViewModel: AnimeViewModel = viewModel()
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.ListScreen.route) {
+
         composable(route = Screen.ListScreen.route) {
-            ListScreen(navController = navController, )
+            ListScreen(navController = navController, animeViewModel )
+            animeViewModel.getAnimesFromApi(1,100)
         }
         composable(
             route = Screen.DetailsScreen.route + "/{name}",
@@ -30,6 +34,4 @@ fun Navigation() {
             DetailsScreen(name = entry.arguments?.getString("name"))
         }
     }
-    AnimeCard(anime = )
-    AnimeViewModel
 }

@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.mmh.longevityintimeanimeapp'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.mmh.longevityintimeanimeapp"
         minSdk 26
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -62,19 +62,18 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
 
-    //Paging
-    def pagingVersion = "3.1.1"
-    implementation "androidx.paging:paging-runtime:$pagingVersion"
-
-    //Glide
-    def glide = "1.0.0-alpha.1"
-    implementation "com.github.bumptech.glide:compose:$glide"
+    //Coil
+    implementation("io.coil-kt:coil-compose:2.2.2")
 
     //Navigation
     def nav_version = "2.5.3"
     implementation "androidx.navigation:navigation-compose:$nav_version"
 
+    //Retrofit
     def retrofit = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+
+    //Compose foundation
+    implementation 'androidx.compose.foundation:foundation:1.3.1'
 }
