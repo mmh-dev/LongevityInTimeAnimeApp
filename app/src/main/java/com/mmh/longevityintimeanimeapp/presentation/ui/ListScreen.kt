@@ -1,4 +1,4 @@
-package com.mmh.longevityintimeanimeapp.presentation.ui.animeList
+package com.mmh.longevityintimeanimeapp.presentation.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
@@ -9,6 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.mmh.longevityintimeanimeapp.presentation.components.AnimeCard
+import com.mmh.longevityintimeanimeapp.presentation.components.Screen
 import com.mmh.longevityintimeanimeapp.presentation.ui.AnimeViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -19,7 +20,7 @@ fun ListScreen(navController: NavController, viewModel: AnimeViewModel) {
         modifier = Modifier.fillMaxSize(),
         content ={
             items(items = animeList) { anime ->
-                AnimeCard(anime = anime)
+                AnimeCard(anime = anime, onClick = { navController.navigate(Screen.DetailsScreen.withArgs(anime._id)) })
             }
         })
 }

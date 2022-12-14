@@ -1,9 +1,11 @@
 package com.mmh.longevityintimeanimeapp.network
 
+import com.mmh.longevityintimeanimeapp.domain.model.Anime
 import com.mmh.longevityintimeanimeapp.domain.model.AnimeResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface AnimeApi {

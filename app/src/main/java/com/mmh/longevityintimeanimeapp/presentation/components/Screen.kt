@@ -1,6 +1,8 @@
 package com.mmh.longevityintimeanimeapp.presentation.components
 
 sealed class Screen(val route: String) {
+    object LoginScreen : Screen("login_screen")
+    object SignUpScreen : Screen("sign_up_screen")
     object ListScreen : Screen("list_screen")
     object DetailsScreen : Screen("details_screen")
 

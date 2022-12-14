@@ -7,31 +7,38 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.mmh.longevityintimeanimeapp.presentation.ui.AnimeViewModel
-import com.mmh.longevityintimeanimeapp.presentation.ui.animeDetails.DetailsScreen
-import com.mmh.longevityintimeanimeapp.presentation.ui.animeList.ListScreen
+import com.mmh.longevityintimeanimeapp.presentation.ui.*
 
 @Composable
 fun Navigation() {
     val animeViewModel: AnimeViewModel = viewModel()
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Screen.ListScreen.route) {
+    NavHost(navController = navController, startDestination = Screen.LoginScreen.route) {
 
-        composable(route = Screen.ListScreen.route) {
-            ListScreen(navController = navController, animeViewModel )
+        composable(route = Screen.LoginScreen.route) {
+            LoginScreen(navController = navController, animeViewModel)
             animeViewModel.getAnimesFromApi(1,100)
         }
+
+        composable(route = Screen.SignUpScreen.route) {
+            SignUpScreen(navController = navController, animeViewModel)
+        }
+
+        composable(route = Screen.ListScreen.route) {
+            ListScreen(navController = navController, viewModel = animeViewModel )
+        }
+
         composable(
-            route = Screen.DetailsScreen.route + "/{name}",
+            route = Screen.DetailsScreen.route + "/{id}",
             arguments = listOf(
-                navArgument("name"){
+                navArgument("id"){
                     type = NavType.StringType
-                    defaultValue = "Murod default value"
+                    defaultValue = ""
                     nullable = true
                 }
             )
         ) { entry ->
-            DetailsScreen(name = entry.arguments?.getString("name"))
+            DetailsScreen(id = entry.arguments?.getString("id"), viewModel = animeViewModel)
         }
     }
 }

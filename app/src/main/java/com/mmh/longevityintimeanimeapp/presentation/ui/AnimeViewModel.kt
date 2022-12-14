@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mmh.longevityintimeanimeapp.domain.model.Anime
+import com.mmh.longevityintimeanimeapp.domain.model.LoginUiState
 import com.mmh.longevityintimeanimeapp.network.RetrofitBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,6 +14,8 @@ import kotlinx.coroutines.launch
 class AnimeViewModel : ViewModel() {
     var animeList:List<Anime> by mutableStateOf(listOf())
     var errorMessage: String by mutableStateOf("")
+    var uiState = mutableStateOf(LoginUiState())
+        private set
 
     fun getAnimesFromApi(page: Int, size: Int) {
         viewModelScope.launch (Dispatchers.IO) {
@@ -26,5 +29,13 @@ class AnimeViewModel : ViewModel() {
             }
 
         }
+    }
+
+    fun onEmailChange(newValue: String) {
+        uiState.value = uiState.value.copy(email = newValue)
+    }
+
+    fun onPasswordChange(newValue: String) {
+        uiState.value = uiState.value.copy(password = newValue)
     }
 }
