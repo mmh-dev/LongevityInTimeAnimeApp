@@ -84,6 +84,7 @@ fun sigUp(navController: NavController, email: String, password: String, viewMod
     if (email.isNotEmpty() && password.isNotEmpty()) {
         viewModel.createUser(email, password)
         if (viewModel.authState.value) {
+            Toast.makeText( context,"User is created successfully!", Toast.LENGTH_SHORT).show()
             navController.navigate(Screen.ListScreen.route)
         }
     } else {

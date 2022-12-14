@@ -1,6 +1,7 @@
 package com.mmh.longevityintimeanimeapp.presentation.ui
 
 import android.graphics.drawable.Icon
+import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
@@ -14,6 +15,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.mmh.longevityintimeanimeapp.presentation.components.AnimeCard
@@ -23,7 +25,10 @@ import com.mmh.longevityintimeanimeapp.presentation.theme.Main
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ListScreen(navController: NavController, viewModel: AnimeViewModel) {
+
+    val context = LocalContext.current
     val animeList = viewModel.animeList
+
     Column {
         TopAppBar() {
             TopAppBar(title = { Text(text = "Anime list")},
@@ -32,6 +37,7 @@ fun ListScreen(navController: NavController, viewModel: AnimeViewModel) {
                 navigationIcon = {
                     IconButton(onClick = {
                         viewModel.signOut()
+                        Toast.makeText( context,"See you soon!", Toast.LENGTH_SHORT).show()
                         navController.navigate(Screen.LoginScreen.route)
                     }) {
                         Icon(imageVector = Icons.Default.ExitToApp, contentDescription = null)

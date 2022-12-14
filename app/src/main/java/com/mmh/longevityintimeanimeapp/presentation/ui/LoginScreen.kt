@@ -81,6 +81,7 @@ fun sigIn(navController: NavController, email: String, password: String, viewMod
     if (email.isNotEmpty() && password.isNotEmpty()) {
         viewModel.login(email, password)
         if (viewModel.authState.value) {
+            Toast.makeText( context,"Welcome back!", Toast.LENGTH_SHORT).show()
             navController.navigate(Screen.ListScreen.route)
         }
     } else {
