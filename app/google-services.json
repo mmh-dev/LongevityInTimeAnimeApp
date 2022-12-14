@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1060232015440",
+    "project_id": "lonvegityanimeapp",
+    "storage_bucket": "lonvegityanimeapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060232015440:android:450f2c2ff2aa5561ebeb55",
+        "android_client_info": {
+          "package_name": "com.mmh.longevityintimeanimeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060232015440-e7cp5f9dm77fafotc0npnktmjr842o7u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDycsCQJqj5TQOg_xvN5sqnML0lXjcfHAE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060232015440-e7cp5f9dm77fafotc0npnktmjr842o7u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
