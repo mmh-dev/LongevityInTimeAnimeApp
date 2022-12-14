@@ -28,6 +28,11 @@ fun LoginScreen(navController: NavController, viewModel: AnimeViewModel) {
 
     val uiState by viewModel.uiState
     val context = LocalContext.current
+    val state = viewModel.authState.value
+
+    if (state) {
+        navController.navigate(Screen.ListScreen.route)
+    }
 
 
     Column(

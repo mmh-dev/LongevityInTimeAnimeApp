@@ -15,7 +15,6 @@ import kotlinx.coroutines.launch
 
 class AnimeViewModel : ViewModel() {
     var authState = mutableStateOf(false)
-    var user: FirebaseUser? = null
     var animeList: List<Anime> by mutableStateOf(listOf())
     var errorMessage: String by mutableStateOf("")
     var uiState = mutableStateOf(LoginUiState())
@@ -65,5 +64,4 @@ class AnimeViewModel : ViewModel() {
         authState.value = false
         accountService.signOut()
     }
-
 }
