@@ -50,7 +50,7 @@ fun DetailsScreen(id: String?, viewModel: AnimeViewModel) {
                     .fillMaxSize()
                     .height(225.dp),
                 contentScale = ContentScale.Crop,
-                alpha = if (textSize.value <= 18f) 0f else 1f,
+                alpha = if (textSize.value <= 20f) 0f else 1f,
                 contentDescription = "anime poster")
 
             Text(text = anime.title,
