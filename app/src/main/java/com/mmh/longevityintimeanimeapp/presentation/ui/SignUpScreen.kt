@@ -17,16 +17,20 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.mmh.longevityintimeanimeapp.presentation.components.EmailField
 import com.mmh.longevityintimeanimeapp.presentation.components.PasswordField
 import com.mmh.longevityintimeanimeapp.presentation.components.Screen
 import com.mmh.longevityintimeanimeapp.presentation.theme.Main
 
+@Preview
 @Composable
-fun SignUpScreen(navController: NavController, viewModel: AnimeViewModel) {
+fun SignUpScreen(navController: NavHostController = rememberNavController(), viewModel: AnimeViewModel = AnimeViewModel()) {
 
     val uiState by viewModel.uiState
     val context = LocalContext.current
